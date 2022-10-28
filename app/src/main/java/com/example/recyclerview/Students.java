@@ -2,9 +2,9 @@ package com.example.recyclerview;
 
 public class Students {
     String name;
-    int age;
+    String age;
 
-    public Students(String name, int age) {
+    public Students(String name, String age) {
         this.name = name;
         this.age = age;
     }
@@ -17,11 +17,11 @@ public class Students {
         this.name = name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 }

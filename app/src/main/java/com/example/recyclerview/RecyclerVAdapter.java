@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerVAdapter extends RecyclerView.Adapter<RecyclerVAdapter.RViewHolder> {
+public class RecyclerVAdapter extends RecyclerView.Adapter<RecyclerVAdapter.ViewHolder> {
 
 
     Context context;
@@ -26,16 +26,23 @@ public class RecyclerVAdapter extends RecyclerView.Adapter<RecyclerVAdapter.RVie
 
     @NonNull
     @Override
-    public RecyclerVAdapter.RViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerVAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.rv_item,parent,false);
-        return new RViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerVAdapter.RViewHolder holder, int position) {
-        holder.name.setText(studentsList.get(position).getName());
-        holder.age.setText(studentsList.get(position).getAge());
-        //holder.name.setText(students.getName());
+    public void onBindViewHolder(@NonNull RecyclerVAdapter.ViewHolder holder, int position) {
+
+        Students s = studentsList.get(position);
+        //String namename = studentsList.get(position).getName();
+        //int ageage = studentsList.get(position).getAge();
+
+
+        //holder.setdata(namename,ageage);
+
+        holder.name.setText(s.getName());
+        holder.age.setText(s.getAge());
         //holder.age.setText(students.getAge());
 
 
@@ -48,14 +55,18 @@ public class RecyclerVAdapter extends RecyclerView.Adapter<RecyclerVAdapter.RVie
         return studentsList.size();
     }
 
-    public class RViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name, age;
 
 
-        public RViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.nameTv);
             age = itemView.findViewById(R.id.ageTv);
+        }
+
+        public void setdata(String namename, int ageage) {
+
         }
     }
 }

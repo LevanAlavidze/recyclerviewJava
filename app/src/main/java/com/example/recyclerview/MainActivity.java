@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerVAdapter adapter;
 
-    /*List<Students> students;*/
+    List<Students> studentsList;
 
 
 
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rec);
 
         StudentsBase students = new StudentsBase();
+        studentsList = students.getAllStudents();
 
 
        RecyclerVAdapter adapter = new RecyclerVAdapter(this,students.getAllStudents());
